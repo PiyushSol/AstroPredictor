@@ -16,6 +16,8 @@ public class intro implements ActionListener{
    JButton yes, close;
    JFrame frame;
    Image icon =new ImageIcon("Image.jpg").getImage();
+   JTextArea text;
+   JScrollPane scrollPane;
    
    intro(){
 	   frame = new JFrame("ASTRO PREDICTION ");
@@ -93,26 +95,28 @@ public class intro implements ActionListener{
 		 Image icon =new ImageIcon("Image.jpg").getImage();
 		 frame1.setIconImage(icon);
 		  frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		   frame1.setSize(400, 400);
-		   frame1.getContentPane().setBackground(new Color(140,82,169));
-		   frame1.setLayout(null);
+		   frame1.setSize(600, 600);
+		   frame1.setLayout(new FlowLayout());
 		   frame1.setLocationRelativeTo(null);
-		   frame1.setVisible(true);
-		   frame1.setResizable(true);
-		  
+		   frame1.setResizable(false);
+
 		   //Text Area to display text.
-		   JTextArea text = new JTextArea(500,500);
-		   text.setSize(600,600);
-		   text.setFont(new Font("Monospaced",Font.BOLD,15));
-		   text.setBackground(new Color(140,82,169));
-		  frame1.add(text);
-		 
+		   text = new JTextArea();
+		   text.setFont(new Font("Arial",Font.BOLD,15));
+		   text.setLineWrap(true);
+		   text.setWrapStyleWord(true);
+        scrollPane = new JScrollPane(text);
+		scrollPane.setPreferredSize(new Dimension(450,450));
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+			 frame1.add(scrollPane);
+			 frame1.setVisible(true);  
       String sign= sign_response.getText();
       
       switch(sign.toUpperCase()) {
       
       case "ARIES": 
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" You love to be number one.Your are Bold and ambitious \n, "
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" You love to be number one.Your are Bold and ambitious \n, "
   	      		+ "dives headfirst into even the most challenging situations (which is appropriate, since the body part \n"
   	      		+ "associated with Aries is the head).\n"
   	      		+ " Like their fellow fire signs, Leo and Sagittarius, Your are  a passionate, motivated, \n"
@@ -121,7 +125,7 @@ public class intro implements ActionListener{
       break;
       
       case "TAURUS":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Taurus is an earth sign represented by the bull. Like your celestial spirit animal,\n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Taurus is an earth sign represented by the bull. Like your celestial spirit animal,\n"
       	  		+ " you enjoy relaxing in serene, bucolic environments, surrounded by soft sounds, soothing aromas, and \n"
       	  		+ "succulent flavors. \n"
       	  		+ "Taurus is ruled by Venus, the enchanting planet that governs love, beauty, and money.\n"
@@ -134,7 +138,7 @@ public class intro implements ActionListener{
      break;
      
       case "GEMINI":
-         text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+"Have you ever been so busy that you wished you could clone yourself just \n"
+         text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+"Have you ever been so busy that you wished you could clone yourself just \n"
     	  		+ "to get everything done? \n"
     	  		+ "That’s the Gemini experience in a nutshell. Appropriately symbolized by\n"
     	  		+ " the celestial twins, this air sign was interested in so many \n"
@@ -148,10 +152,10 @@ public class intro implements ActionListener{
      break;
      
       case "CANCER":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+"Cancer is a cardinal water sign. Represented by the crab, this \n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+"Cancer is a cardinal water sign. Represented by the crab, this \n"
     	  		+ "oceanic crustacean seamlessly weaves between \n"
       	  		+ "the sea and shore, representing Cancer’s ability \n"
-      	  		+ "to exist in both emotional and material realms.\n"
+     	  		+ "to exist in both emotional and material realms.\n"
       	  		+ " Cancers are highly intuitive and their psychic abilities \n"
       	  		+ "manifest in tangible spaces: For instance, Cancers can effortlessly pick up the energies in a room. \n"
       	  		+ "These crabs are highly sensitive to their environments, as well as extremely self-protective. \n"
@@ -167,7 +171,7 @@ public class intro implements ActionListener{
      break;
      
       case "LEO":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+"Roll out the red carpet, because Leo has arrived. \n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+"Roll out the red carpet, because Leo has arrived. \n"
     	  		+ "Leo is represented by the lion, and these spirited \n"
   		  		+ " fire signs are the kings and queens of the celestial jungle.\n"
   		  		+ " They’re delighted to embrace their royal status: Vivacious, theatrical, and passionate, \n"
@@ -181,7 +185,7 @@ public class intro implements ActionListener{
   	      		+ "nothing to their own. Ultimately, Leos' own hubris is the greatest threat to their happiness.\r\n"		      		+ "\n Your Lucky Number is 3."); 
      break;
       case "VIRGO":
-		  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+"Virgo is an earth sign historically represented by the goddess of wheat and agriculture, \n"
+		  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+"Virgo is an earth sign historically represented by the goddess of wheat and agriculture, \n"
 		  		+ "an association that speaks to \n "
   		  		+ " Virgo’s deep-rooted presence in the material world. Virgos are logical, practical, and \n"
   		  		+ "systematic in their approach to life. This earth sign is a perfectionist at heart and isn’t afraid to improve skills through diligent and consistent practice. \n"
@@ -195,7 +199,7 @@ public class intro implements ActionListener{
      break;
      
       case "LIBRA":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Libra is an air sign represented by the scales (interestingly, the only \n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Libra is an air sign represented by the scales (interestingly, the only \n"
   		  		+ "inanimate object of the zodiac), an association that reflects Libra's fixation on balance and harmony. \n"
   		  		+ "Libra is obsessed with symmetry and strives to create equilibrium in all areas of life.\n"
   		  		+ " These air signs are the aesthetes of the zodiac: Ruled by Venus, the planet that governs love, \n"
@@ -208,7 +212,7 @@ public class intro implements ActionListener{
      break;
      
       case "SCORPIO":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Scorpio is one of the most misunderstood signs of the zodiac. \n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Scorpio is one of the most misunderstood signs of the zodiac. \n"
     	  		+ "Because of its incredible passion and power, \n"
   		  		+ "Scorpio is often mistaken for a fire sign. \n"
   		  		+ "In fact, Scorpio is a water sign that derives its strength from the psychic, emotional realm. \n"
@@ -223,7 +227,7 @@ public class intro implements ActionListener{
      break;
      
       case "SAGITTARIUS":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" What makes Sagittarius so unique is its dynamic blend of passion,\n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" What makes Sagittarius so unique is its dynamic blend of passion,\n"
     	  		+ " curiosity, intensity, and adaptability. Represented by the archer (a half-man, half-horse centaur), \n"
 		  		+ "Sagittarius isn't afraid to use its bow and arrow to explore expansive terrain,\n"
 		  		+ " seeking answers in places and spaces others wouldn’t dare venture. Whether they're white water rafting down a river in \n"			  		+ "some undisclosed \n"
@@ -235,7 +239,7 @@ public class intro implements ActionListener{
     break;
     
       case "CAPRICORN":
-    	 text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Capricorn is a mischievous troublemaker (in tarot, Capricorn is symbolized by the \"devil\" card).\n"
+    	 text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Capricorn is a mischievous troublemaker (in tarot, Capricorn is symbolized by the \"devil\" card).\n"
     	 		+ " Though this earth sign may seem a bit conservative and restrained at first, Capricorn's closest friends and lovers know that these sea goats love to party.\r\n"
 		      		+ "Interestingly, Capricorns are said to age backwards: they become increasingly youthful, optimistic, and playful as they mature.\n"
 		      		+ " Indeed, inside every earnest Capricorn is a mischievous troublemaker Though this earth sign may seem a bit conservative and restrained at first, Capricorn's closest friends and lovers know that these sea goats love to party.\r\n"
@@ -247,7 +251,7 @@ public class intro implements ActionListener{
     
       case "AQUARIUS":
     		 
-		 text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Aquarius is an air sign. As the eleventh and penultimate sign of the zodiac,\n"
+		 text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Aquarius is an air sign. As the eleventh and penultimate sign of the zodiac,\n"
 		 		+ " Aquarius is actually the final air sign, which means it deals with air-related concepts (we'll get more into that momentarily) from a macro-perspective. Of all the zodiac signs, Aquarius is undoubtedly the most innovative, progressive, rebellious, and humanitarian. And while Aquarius can often be \n"
 		  		+ "found planning a revolution or proudly flaunting their funky fashion sensibility,\n"
 		  		+ " they also have an often overlooked sensitive side that requires appreciation, support, and love.\r\n"
@@ -259,7 +263,7 @@ public class intro implements ActionListener{
     break;
     
       case "PISCES":
-    	  text.append(" Hi! "+ name_response.getText()+" Your traits are \n "+" Pisces, a water sign, is the last constellation \n"
+    	  text.setText(" Hi! "+ name_response.getText()+" Your traits are \n "+" Pisces, a water sign, is the last constellation \n"
     	  		+ "of the zodiac. It's symbolized by two fish swimming in opposite directions, representing the constant \n"
     	  		+ "division of Pisces's attention between fantasy and reality. As the final sign, Pisces has absorbed every \n"
     	  		+ "lesson — the joys and the pains, the hopes and the fears — learned by all of the other signs. \n"
@@ -273,11 +277,12 @@ public class intro implements ActionListener{
     break;
     
     default:
-      text.append("You Have Not Entered A Correct SunSign.");
+      text.setText("You Have Not Entered A Correct SunSign.");
       
       }
-    
-  }
+  
+
+	}
 	 
 	 else
 		 if( e.getSource() == close) {
